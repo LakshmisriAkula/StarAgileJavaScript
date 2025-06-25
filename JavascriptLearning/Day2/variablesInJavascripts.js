@@ -1,3 +1,6 @@
+show();
+sum();
+
 /*
 variables - in JS are used to store data that can be used and changed later in the program.
 Javascripts keywords
@@ -119,7 +122,7 @@ const - (final) is immutable variable
     //valueEnv = "12312ada";// re initialization is not allowed
 
 
-//     console.log("======================Hoisting=====================");
+    console.log("======================Hoisting=====================");
 
 
     /*
@@ -153,3 +156,62 @@ console.log("Hoisting with var")
 
 
 
+//hoisting allowed to function declaration but not function expression.
+// function add();  // function declaration
+// 1. function without name , 2. arrow function.(anonynomus)
+
+// let sum = function(){}
+
+/*
+2 steps
+1. preparation (Memory setup)
+   a. JS scans your code top to bottom
+   b. its finds all var, let, const and function declarations
+   c. its sets them aside in memory before any line runs
+ 
+2. Execution.
+    1. Now js runs your code line by line
+    2. if we use a variable or function before its written , js got to know from step 1
+
+*/
+
+console.log(x); //undefined
+var x = 10;
+
+var x; // step1: declaration hoisted.
+console.log(x); // step 2 value is undefined.
+x = 20 ; // step2 : assignment
+
+
+// console.log(b);  // error
+// let b = 5 ; 
+// javascripts knows b exists but doesnt let you touch it until the line where it declared.
+//TDZ Temporal dead zone., let and const are hoisted, 
+
+function show(){
+    console.log("show function calling")
+}
+
+show();
+
+/*
+ReferenceError: Cannot access 'sum' before initialization
+    at Object.<anonymous> (e:\StarAgileJavaScript\JavascriptLearning\Day2\variablesInJavascripts.js:2:1)
+    at Module._compile (node:internal/modules/cjs/loader:1730:14)
+    at Object..js (node:internal/modules/cjs/loader:1895:10)
+    at Module.load (node:internal/modules/cjs/loader:1465:32)
+    at Function._load (node:internal/modules/cjs/loader:1282:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+
+
+*/
+let sum =function(){
+    {
+        console.log("calling function without name")
+    }
+}
+
+sum();
