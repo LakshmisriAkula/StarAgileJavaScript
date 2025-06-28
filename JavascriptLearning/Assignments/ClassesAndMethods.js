@@ -65,3 +65,72 @@ let bankInfo = new Bank();
 bankInfo.deposit(500)
 bankInfo.withdraw(100)
 bankInfo.balance()
+
+console.log("3.Create a Book class with a method to display book info and a method to mark it as read.");
+
+class Book {
+
+    constructor(Title, Author) {
+        this.Title = Title;
+        this.Author = Author;
+        this.isRead = false;
+    }
+
+    bookInfo() {
+        console.log("Author name " + this.Author);
+        console.log("Title is " + this.Title);
+
+    }
+
+    read() {
+        this.isRead = true;
+        console.log(`This book: ${this.Author} is now marked as read`);
+
+    }
+
+
+}
+
+let bookDetails = new Book("The Epic", "Shain")
+
+bookDetails.bookInfo();
+bookDetails.read();
+
+console.log("4.Create a Rectangle class with methods to calculate area and perimeter.");
+
+class Rectangle {
+    constructor(length, width) {
+
+        this.length = length;
+        this.width = width;
+
+    }
+
+    calculateArea() {
+        return this.length * this.width;
+    }
+
+    calculatePerimeter() {
+        return 2 * (this.length + this.width)
+    }
+}
+
+let calAreaRect = new Rectangle(20,30)
+console.log("Area of Rectangle: " + calAreaRect.calculateArea());
+console.log("Perimeter of Rectangle: " + calAreaRect.calculatePerimeter());
+
+console.log("5.Create a Person class with a method that returns their full name and age.");
+
+class Person{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+
+    getDetails(){
+        return `Employee full name is ${this.name} and Age is ${this.age}`
+    }
+}
+
+let personDetails = new Person("Jai",34);
+console.log(personDetails.getDetails());
